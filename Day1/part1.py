@@ -1,17 +1,12 @@
 def main():
     current = 50
     password = 0
-    with open("input.txt", "r") as problemInput:
-        for problemInputLine in problemInput:
-            direction = problemInputLine[0]
-            value = int(problemInputLine[1:].strip())
-            if direction == "L":
-                value = -value
-
-            current = (current + value) % 100
-
-            if current == 0:
-                password += 1
+    problemInput = open("input.txt", "r")
+    for problemInputLine in problemInput:
+        left = 1 - 2 * (problemInputLine[0] == "L")
+        value = int(problemInputLine[1:])
+        current += (left * value) % 100
+        password += (current == 0) * 1
 
     print(password)
 
