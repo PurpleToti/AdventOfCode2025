@@ -1,3 +1,7 @@
+import math
+import time
+
+
 def main():
     result = 0
     problemInput = open("input.txt", "r")
@@ -16,10 +20,8 @@ def main():
             for i in range(1, strNumberLen // 2 + 1):
                 if strNumberLen % i != 0:
                     continue
-                for j in range(1, strNumberLen // i):
-                    if strNumber[j * i : j * i + i] != strNumber[:i]:
-                        break
-                else:
+
+                if int(strNumber[:i] * (strNumberLen // i)) == number:
                     result += number
                     break
 
@@ -27,4 +29,7 @@ def main():
 
 
 if __name__ == "__main__":
+    start = time.perf_counter()
     main()
+    end = time.perf_counter()
+    print(f"Elapsed: {end - start:.6f} seconds")
