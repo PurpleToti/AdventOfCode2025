@@ -5,8 +5,10 @@ def main():
     for problemInputLine in problemInput:
         left = 1 - 2 * (problemInputLine[0] == "L")
         value = int(problemInputLine[1:])
-        current += (left * value) % 100
-        password += (current == 0) * 1
+        current = current + value * left
+        zeros = (current // 100) * left
+        current = current % 100
+        password += zeros
 
     print(password)
 
