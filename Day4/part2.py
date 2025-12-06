@@ -1,3 +1,6 @@
+import time
+
+
 def main():
     problemInput = open("input.txt", "r")
     diagram = [list(line.strip()) for line in problemInput.readlines()]
@@ -43,4 +46,7 @@ def main():
 
 
 if __name__ == "__main__":
+    start = time.perf_counter()
     main()
+    end = time.perf_counter()
+    print(f"Elapsed: {end - start:.6f} seconds")
