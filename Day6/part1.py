@@ -24,13 +24,10 @@ def main():
         for i, lineNumber in enumerate(lineNumbers):
             numbers[i].append(lineNumber)
 
-    print(numbers)
-
     result = 0
     for i, operation in enumerate(elements):
         if operation == "+":
             addition = sum(numbers[i])
-            print(f"Addition {i}, {numbers[i]}: {addition}")
             result += addition
 
         if operation == "*":
@@ -38,7 +35,6 @@ def main():
             for n in numbers[i]:
                 multipication *= n
 
-            print(f"Multiplication {i}, {numbers[i]}: {multipication}")
             result += multipication
 
     print(result)
